@@ -82,7 +82,14 @@ vim.keymap.set('n', '<Leader>ag',
     function()
         local argc = vim.fn.argc()
 
-        if vim.v.count >= 1 and vim.v.count <= argc then
+        if argc == 0 then
+            vim.cmd('args')
+            return
+        end
+
+        if vim.v.count == 0 then
+            vim.cmd('rewind')
+        elseif vim.v.count >= 1 and vim.v.count <= argc then
             vim.cmd('rewind')
             vim.cmd(tostring(vim.v.count)..'next')
         end
