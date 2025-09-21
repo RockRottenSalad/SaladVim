@@ -1,0 +1,33 @@
+
+snippet class "Class"
+class ${1:name} {
+	private:
+	$2
+	public:
+	$3
+	$1($4);
+	~$1();
+};
+
+$0$1::$1($4)
+{}
+
+$1::~$1()
+{}
+endsnippet
+
+snippet func "function"
+${1:void} ${2:function}(${3:void}) {
+$0
+}
+endsnippet
+
+snippet sfunc "(sub)function in namespace/class"
+${1:void} $2::${3:function}(${4:void}) {
+$0
+}
+endsnippet
+
+snippet ar "arrow operator"
+->
+endsnippet
