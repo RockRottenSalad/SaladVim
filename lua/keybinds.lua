@@ -56,6 +56,7 @@ vim.keymap.set('i', '<C-h>', '<Left>')
 vim.keymap.set('n', '<Leader>ff', ':Pick files<CR>')
 vim.keymap.set('n', '<Leader>fh', ':Pick help<CR>')
 vim.keymap.set('n', '<Leader>fg', ':Pick grep<CR>')
+vim.keymap.set('n', '<Leader>fb', ':Pick buffers<CR>')
 
 -- Args
 vim.keymap.set('n', '<Leader>al', '<cmd>args<CR>')
