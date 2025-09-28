@@ -58,6 +58,19 @@ vim.keymap.set('n', '<Leader>fh', ':Pick help<CR>')
 vim.keymap.set('n', '<Leader>fg', ':Pick grep<CR>')
 vim.keymap.set('n', '<Leader>fb', ':Pick buffers<CR>')
 
+-- Indent and de-indent from insert mode
+vim.keymap.set('i', '<C-f>', '<C-o>>>')
+vim.keymap.set('i', '<C-d>', '<C-o><<')
+
+-- LSP keybinds
+    -- Format file
+vim.keymap.set('n', '<Leader>lf', vim.lsp.buf.format)
+    -- Jump to def/dec
+vim.api.nvim_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
+    -- Trigger LSP omnicompletion
+vim.keymap.set("i", "<C-space>", '<C-x><C-o>')
+
 -- Args
 vim.keymap.set('n', '<Leader>al', '<cmd>args<CR>')
 vim.keymap.set('n', '<Leader>ae', '<cmd>last<CR><cmd>args<CR>')
@@ -97,18 +110,4 @@ vim.keymap.set('n', '<Leader>ag',
         vim.cmd('args')
     end
 )
-
--- Indent and de-indent from insert mode
-vim.keymap.set('i', '<C-f>', '<C-o>>>')
-vim.keymap.set('i', '<C-d>', '<C-o><<')
-
--- LSP keybinds
-    -- Format file
-vim.keymap.set('n', '<Leader>lf', vim.lsp.buf.format)
-    -- Jump to def/dec
-vim.api.nvim_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
-    -- Trigger LSP omnicompletion
-vim.keymap.set("i", "<C-space>", '<C-x><C-o>')
-
 

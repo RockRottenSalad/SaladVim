@@ -4,7 +4,7 @@ require("oil").setup({
     default_file_explorer = true,
     -- Id is automatically added at the beginning, and name at the end
     -- See :help oil-columns
-    columns = {
+    keymaps = {
 
         ["<C-h>"] = { "actions.select", opts = { horizontal = true }, desc = "Open the entry in a horizontal split" },
         ["<Leader>h"] = { "actions.select", opts = { horizontal = true }, desc = "Open the entry in a horizontal split" },
@@ -32,6 +32,15 @@ require("oil").setup({
         ["gx"] = "actions.open_external",
         ["g."] = "actions.toggle_hidden",
         ["g\\"] = "actions.toggle_trash",
+
+        ["<leader>:"] = {
+            "actions.open_cmdline",
+            opts = {
+                shorten_path = true,
+                modify = ":h",
+            },
+            desc = "Open the command line with the current directory as an argument",
+        },
     },
     -- Set to false to disable all of the above keymaps
     use_default_keymaps = true,

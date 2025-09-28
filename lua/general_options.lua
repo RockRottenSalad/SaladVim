@@ -6,7 +6,7 @@ vim.wo.number = true
 vim.wo.relativenumber = true
 -- Cursor stays centered on big files
 vim.opt.scrolloff = 999
-vim.opt.completeopt = { "menuone", "noselect", "popup" } 
+vim.opt.completeopt = { "menuone", "noselect", "popup" }
 
 vim.opt.mouse = {}
 vim.cmd("set backspace=2")

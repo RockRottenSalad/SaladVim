@@ -14,6 +14,7 @@ vim.lsp.config("lua_ls", {
 
 vim.lsp.enable({
     "lua_ls",
+    "gopls",
     "clangd",
     "texlab",
     "rust_analyzer",
@@ -29,7 +30,6 @@ for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
     vim.api.nvim_set_hl(0, group, {})
 end
 
-vim.diagnostic.config{
+vim.diagnostic.config {
     virtual_text = { current_line = true, },
 }
-
