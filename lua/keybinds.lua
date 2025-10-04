@@ -37,7 +37,7 @@ vim.keymap.set('n', '<Leader>cc', '<cmd>cclose<CR>')
 vim.keymap.set('n', '<C-n>', '<cmd>cnext<CR>')
 vim.keymap.set('n', '<C-p>', '<cmd>cprev<CR>')
     -- Add diagnostic errors to quickfix list
-vim.keymap.set('n', '<Leader>cd', '<cmd>vim.diagnostic.setqflist({ open = true })<CR>')
+vim.keymap.set('n', '<Leader>cd', '<cmd>lua vim.diagnostic.setqflist({ open = true })<CR>')
 
 -- Re-source init.lua
 vim.keymap.set('n', '<Leader>S', '<cmd>source ~/.config/nvim/init.lua<CR><cmd>echo "Sourced init.lua"<CR>')
