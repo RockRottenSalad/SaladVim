@@ -23,6 +23,7 @@ vim.lsp.enable({
     "csharp_ls",
     "zls",
     "jdtls",
+    "pylsp",
 })
 
 

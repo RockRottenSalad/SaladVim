@@ -48,6 +48,9 @@ vim.keymap.set('n', '<Leader>r', '@:')
     -- Edit previous file
 vim.keymap.set('n', '<Leader>s', ':e #<CR>')
 
+-- Man page word under cursor
+vim.keymap.set('n', '<Leader>K', 'yiw:vertical Man <C-r>"<CR>')
+
 -- Insert mode movement(should be default, but for some reason it isn't working)
 vim.keymap.set('i', '<C-l>', '<Right>')
 vim.keymap.set('i', '<C-k>', '<Up>')
