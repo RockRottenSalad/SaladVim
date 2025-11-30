@@ -25,18 +25,18 @@ Plug('lervag/vimtex')
 Plug('sirver/ultisnips')
 
 -- Allows removing an entry from the quickfix list using dd
-Plug('TamaMcGlinn/quickfixdd')
+Plug('stefandtw/quickfix-reflector.vim')
 
 -- Default configs for LSPs
 Plug('neovim/nvim-lspconfig')
 
 -- Fuzzy file search and grep
-Plug('nvim-mini/mini.pick')
+Plug('nvim-lua/plenary.nvim')
+Plug('BurntSUshi/ripgrep')
+Plug('nvim-telescope/telescope.nvim')
 
 -- Better syntax highlighting
-Plug('nvim-treesitter/nvim-treesitter', {['do'] = function()
-    vim.cmd(":TSUpdate")
-end})
+Plug('nvim-treesitter/nvim-treesitter')
 
 vim.call('plug#end')
 

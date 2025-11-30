@@ -24,6 +24,7 @@ vim.lsp.enable({
     "zls",
     "jdtls",
     "pylsp",
+    "hls",
 })
 
 

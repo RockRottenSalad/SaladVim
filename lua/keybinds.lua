@@ -57,11 +57,12 @@ vim.keymap.set('i', '<C-k>', '<Up>')
 vim.keymap.set('i', '<C-j>', '<Down>')
 vim.keymap.set('i', '<C-h>', '<Left>')
 
--- Mini pick plugin keybinds
-vim.keymap.set('n', '<Leader>ff', ':Pick files<CR>')
-vim.keymap.set('n', '<Leader>fh', ':Pick help<CR>')
-vim.keymap.set('n', '<Leader>fg', ':Pick grep<CR>')
-vim.keymap.set('n', '<Leader>fb', ':Pick buffers<CR>')
+-- Telescope plugin keybinds
+local ts = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', ts.find_files, { desc = 'Telescope find files' })
+vim.keymap.set('n', '<leader>fg', ts.live_grep, { desc = 'Telescope live grep' })
+vim.keymap.set('n', '<leader>fb', ts.buffers, { desc = 'Telescope buffers' })
+vim.keymap.set('n', '<leader>fh', ts.help_tags, { desc = 'Telescope help tags' })
 
 -- Indent and de-indent from insert mode
 vim.keymap.set('i', '<C-f>', '<C-o>>>')
