@@ -25,6 +25,7 @@ vim.lsp.enable({
     "jdtls",
     "pylsp",
     "hls",
+    "fsautocomplete",
 })
 
 

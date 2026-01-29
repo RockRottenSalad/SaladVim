@@ -30,13 +30,15 @@ Plug('stefandtw/quickfix-reflector.vim')
 -- Default configs for LSPs
 Plug('neovim/nvim-lspconfig')
 
+Plug('whonore/Coqtail')
+
 -- Fuzzy file search and grep
 Plug('nvim-lua/plenary.nvim')
 Plug('BurntSUshi/ripgrep')
 Plug('nvim-telescope/telescope.nvim')
 
 -- Better syntax highlighting
-Plug('nvim-treesitter/nvim-treesitter')
+Plug('nvim-treesitter/nvim-treesitter', { ['branch'] = 'master' })
 
 vim.call('plug#end')
 

@@ -12,7 +12,7 @@ require 'nvim-treesitter.configs'.setup {
         "vimdoc", "query", "markdown",
         "markdown_inline", "cpp", "java",
         "html", "javascript", "css",
-        "latex", "haskell", "javascript", "razor" },
+        "latex", "haskell", "javascript", "razor", "fsharp" },
 
     -- Install parsers synchronously (only applied to `ensure_installed`)
     sync_install = false,
