@@ -4,6 +4,8 @@ require("plugins.oil_config")
 require("plugins.treesitter_config")
 require("plugins.telescope_config")
 require("plugins.coqtail_config")
+require("plugins.compile_mode_config")
+--require("plugins.kulala_config")
 
 -- Appearance, line numbers, scrolloff 
 require("general_options")

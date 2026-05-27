@@ -2,6 +2,9 @@ local utils = require("utils")
 
 vim.opt.encoding = "utf-8"
 
+vim.opt.modeline = false
+vim.opt.modelines = 0
+
 vim.wo.number = true
 vim.wo.relativenumber = true
 -- Cursor stays centered on big files

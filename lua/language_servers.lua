@@ -24,8 +24,9 @@ vim.lsp.enable({
     "zls",
     "jdtls",
     "hls",
-    "fsautocomplete",
+--    "fsautocomplete",
 
+    "pylsp",
     "ty",
     "ruff",
 })
@@ -36,6 +37,7 @@ for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
     vim.api.nvim_set_hl(0, group, {})
 end
 
+-- Only display in-line errors/warnings for the line the cursor is on
 vim.diagnostic.config {
     virtual_text = { current_line = true, },
 }

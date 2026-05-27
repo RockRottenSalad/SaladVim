@@ -29,6 +29,8 @@ vim.keymap.set('n', '<Leader>kill', '<cmd>|%bd|e#|bd#<CR>|`"|<cmd>echo "Killed b
 vim.keymap.set('n', '<Leader>n', '<cmd>bnext<CR>')
 vim.keymap.set('n', '<Leader>p', '<cmd>bprev<CR>')
 
+vim.keymap.set('t', '<C-k>', '<C-\\><C-N>')
+
 -- Quickfix list keybinds
     -- Open/Close quickfix list
 vim.keymap.set('n', '<Leader>co', '<cmd>copen<CR>')
@@ -41,6 +43,12 @@ vim.keymap.set('n', '<Leader>cd', '<cmd>lua vim.diagnostic.setqflist({ open = tr
 
 -- Re-source init.lua
 vim.keymap.set('n', '<Leader>S', '<cmd>source ~/.config/nvim/init.lua<CR><cmd>echo "Sourced init.lua"<CR>')
+
+-- Kualala
+--vim.keymap.set("n", "<leader>Rr", require('kulala').run, { desc = "Execute HTTP request" })
+--vim.keymap.set("n", "<leader>Ra", require('kulala').run_all, { desc = "Execute all HTTP requests" })
+--vim.keymap.set("n", "<leader>Ri", require('kulala').inspect, { desc = "Inspect HTTP request" })
+--vim.keymap.set("n", "<leader>Rt", require('kulala').toggle_view, { desc = "Toggle response view" })
 
 -- Repeat previous
     -- Repeat previous command
@@ -59,6 +67,7 @@ vim.keymap.set('i', '<C-h>', '<Left>')
 
 -- Telescope plugin keybinds
 local ts = require('telescope.builtin')
+local themes = require('telescope.themes')
 vim.keymap.set('n', '<leader>ff', ts.find_files, { desc = 'Telescope find files' })
 vim.keymap.set('n', '<leader>fg', ts.live_grep, { desc = 'Telescope live grep' })
 vim.keymap.set('n', '<leader>fb', ts.buffers, { desc = 'Telescope buffers' })

@@ -1,4 +1,7 @@
-require('telescope').setup{
+
+local themes = require('telescope.themes')
+
+require('telescope').setup(themes.get_ivy({
     defaults = {
         borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
         -- Default configuration for telescope goes here:
@@ -28,5 +31,5 @@ require('telescope').setup{
         -- }
         -- please take a look at the readme of the extension you want to configure
     }
-}
+}))
 
