@@ -24,7 +24,7 @@ vim.lsp.enable({
     "zls",
     "jdtls",
     "hls",
---    "fsautocomplete",
+    "fsautocomplete",
 
     "pylsp",
     "ty",
@@ -40,4 +40,6 @@ end
 -- Only display in-line errors/warnings for the line the cursor is on
 vim.diagnostic.config {
     virtual_text = { current_line = true, },
+--    update_in_insert = false
 }
+

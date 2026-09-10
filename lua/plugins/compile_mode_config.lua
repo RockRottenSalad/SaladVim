@@ -11,18 +11,21 @@ vim.g.compile_mode = {
         -- error: cannot find macro `rintln` in this scope
         --> src/main.rs:19:9
         rust = {
-            regex = [[^\s*-->\s+\([^:]+\):\([0-9]+\):\([0-9]+\)]],
+            regex = [[^\s*-->\s+\([^:]\+\):\([0-9]\+\):\([0-9]\+\)]],
             filename = 1,
             row = 2,
             col = 3,
-            priority = 100,
+            priority = 2,
         },
 
+        -- F# error looks like this
+        -- /home/dev/Programming/fsharp/programs-as-data/assignment_3/Expr/Expr.fs(25,10): error FS0039: The value or constructor 'rim' is not defined. Maybe you want one of the following:   Prim [/home/dev/Programming/fsharp/programs-as-data/assignment_3/Expr/parse.fsproj]
         fsharp = {
-            regex = [[^\([^(]+\)(\([0-9]+\),\([0-9]+\))]],
+            regex = [[^\([^(]\+\)(\([0-9]\+\),\([0-9]\+\))]],
             filename = 1,
             row = 2,
             col = 3,
+            priority = 2,
         },
     },
     -- Default compile command per language
@@ -118,7 +121,7 @@ vim.g.compile_mode = {
     -- Jump back past the end/beginning of the errors
     -- with `:NextError`/`:PrevError`
     -- :h compile-mode.use_circular_error_navigation
-    use_circular_error_navigation = false,
+    use_circular_error_navigation = true,
     -- Print debug information.
     -- :h compile-mode.debug
     debug = false,

@@ -1,3 +1,25 @@
+
+
+local languages = {
+    "c", "lua", "vim", "rust",
+    "vimdoc", "query", "markdown",
+    "markdown_inline", "cpp", "java",
+    "html", "javascript", "css", "python",
+    "latex", "haskell", "javascript", "razor",
+    "fsharp", "zig", "odin", "go"
+}
+
+require('nvim-treesitter').setup {
+  install_dir = vim.fn.stdpath('data') .. '/site'
+}
+
+require('nvim-treesitter').install(languages)
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = languages,
+  callback = function() vim.treesitter.start() end,
+})
+
 --vim.filetype.add({
 --    pattern = {
 --        ['*.razor'] = 'razor'

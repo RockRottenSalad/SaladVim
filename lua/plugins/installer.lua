@@ -13,8 +13,8 @@ vim.pack.add({
     "https://www.github.com/tpope/vim-commentary",
     ---- Auto pairs
     "https://www.github.com/jiangmiao/auto-pairs",
-    ---- Snippets
-    "https://www.github.com/sirver/ultisnips",
+    ---- Snippets [DISABLED FOR NOW]
+--    "https://www.github.com/sirver/ultisnips",
     ---- Allows removing an entry from the quickfix list using dd
     "https://www.github.com/stefandtw/quickfix-reflector.vim",
     ---- Default configs for LSPs

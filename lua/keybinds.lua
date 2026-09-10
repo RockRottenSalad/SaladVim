@@ -8,7 +8,7 @@ local utils = require 'utils'
 vim.g.mapleader = " "
 
 -- Use Leader + w for pane control <C-w>
-vim.keymap.set('n', '<Leader>w', '<C-w>')
+vim.keymap.set('n', '<leader>w', '<C-w>')
 
 -- Oil
     -- Open Oil when å is pressed
@@ -17,32 +17,38 @@ vim.keymap.set('n', 'å', '<cmd>Oil<CR>')
 vim.keymap.set('n', '-', '<cmd>Oil<CR>')
 
 -- Command window
-vim.keymap.set('n', '<Leader>q', 'q:')
+vim.keymap.set('n', '<leader>q', 'q:')
 
 -- Jump to mark with æ, ` sucks on nordic layout for frequently used key
 vim.keymap.set('n', 'æ', '`')
 
 -- Buffers
     -- Kills all buffers except the current one
-vim.keymap.set('n', '<Leader>kill', '<cmd>|%bd|e#|bd#<CR>|`"|<cmd>echo "Killed buffers"<CR>')
+vim.keymap.set('n', '<leader>kill', '<cmd>|%bd|e#|bd#<CR>|`"|<cmd>echo "Killed buffers"<CR>', { desc = "kill all buffers except current one" })
     -- Cycling through buffers
-vim.keymap.set('n', '<Leader>n', '<cmd>bnext<CR>')
-vim.keymap.set('n', '<Leader>p', '<cmd>bprev<CR>')
+vim.keymap.set('n', '<leader>n', '<cmd>bnext<CR>', { desc = "goto next buffer" })
+vim.keymap.set('n', '<leader>p', '<cmd>bprev<CR>', { desc = "goto prev buffer" })
 
 vim.keymap.set('t', '<C-k>', '<C-\\><C-N>')
 
 -- Quickfix list keybinds
     -- Open/Close quickfix list
-vim.keymap.set('n', '<Leader>co', '<cmd>copen<CR>')
-vim.keymap.set('n', '<Leader>cc', '<cmd>cclose<CR>')
+vim.keymap.set('n', '<leader>co', '<cmd>copen<CR>')
+vim.keymap.set('n', '<leader>cc', '<cmd>cclose<CR>')
     -- Jump to next/prev quickfix list item
 vim.keymap.set('n', '<C-n>', '<cmd>cnext<CR>')
 vim.keymap.set('n', '<C-p>', '<cmd>cprev<CR>')
     -- Add diagnostic errors to quickfix list
-vim.keymap.set('n', '<Leader>cd', '<cmd>lua vim.diagnostic.setqflist({ open = true })<CR>')
+vim.keymap.set('n', '<leader>cd', '<cmd>lua vim.diagnostic.setqflist({ open = true })<CR>')
+
+-- compile-mode keybinds
+vim.keymap.set('n', '<leader>kk', '<cmd>Compile<CR>', { desc = "compile project" })
+vim.keymap.set('n', '<leader>ll', '<cmd>Recompile<CR>', { desc = "recompile project" })
+vim.keymap.set('n', '<C-j>', '<cmd>NextError<CR>', { desc = "goto next compilation error" })
+vim.keymap.set('n', '<C-k>', '<cmd>PrevError<CR>', { desc = "goto prev compilation error" })
 
 -- Re-source init.lua
-vim.keymap.set('n', '<Leader>S', '<cmd>source ~/.config/nvim/init.lua<CR><cmd>echo "Sourced init.lua"<CR>')
+vim.keymap.set('n', '<leader>S', '<cmd>source ~/.config/nvim/init.lua<CR><cmd>echo "Sourced init.lua"<CR>')
 
 -- Kualala
 --vim.keymap.set("n", "<leader>Rr", require('kulala').run, { desc = "Execute HTTP request" })
@@ -52,12 +58,12 @@ vim.keymap.set('n', '<Leader>S', '<cmd>source ~/.config/nvim/init.lua<CR><cmd>ec
 
 -- Repeat previous
     -- Repeat previous command
-vim.keymap.set('n', '<Leader>r', '@:')
+vim.keymap.set('n', '<leader>r', '@:')
     -- Edit previous file
-vim.keymap.set('n', '<Leader>s', ':e #<CR>')
+vim.keymap.set('n', '<leader>s', ':e #<CR>')
 
 -- Man page word under cursor
-vim.keymap.set('n', '<Leader>K', 'yiw:vertical Man <C-r>"<CR>')
+vim.keymap.set('n', '<leader>K', 'yiw:vertical Man <C-r>"<CR>')
 
 -- Insert mode movement(should be default, but for some reason it isn't working)
 vim.keymap.set('i', '<C-l>', '<Right>')
@@ -79,21 +85,29 @@ vim.keymap.set('i', '<C-d>', '<C-o><<')
 
 -- LSP keybinds
     -- Format file
-vim.keymap.set('n', '<Leader>lf', vim.lsp.buf.format)
+vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format, { desc = 'LSP reformat file' })
     -- Jump to def/dec
-vim.api.nvim_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true, desc = "goto declaration" })
+vim.api.nvim_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true, desc = "goto definition" })
     -- Trigger LSP omnicompletion
 vim.keymap.set("i", "<C-space>", '<C-x><C-o>')
+    -- Trigger LSP code action
+vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "code actions" })
+    -- Trigger LSP code rename
+vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { desc = "code rename" })
+
+-- goto next error/warn(diagnostic)
+vim.keymap.set("n", "<C-f>", vim.diagnostic.goto_next, { desc = "goto next diagnositic" })
+vim.keymap.set("n", "<C-s>", vim.diagnostic.goto_prev, { desc = "goto prev diagnostic" })
 
 -- Args
-vim.keymap.set('n', '<Leader>al', '<cmd>args<CR>')
-vim.keymap.set('n', '<Leader>ae', '<cmd>last<CR><cmd>args<CR>')
-vim.keymap.set('n', '<Leader>ac', '<cmd>argdelete *<CR><cmd>echo "Cleared args"<CR>')
-vim.keymap.set('n', '<Leader>ad', '<cmd>argdelete %<CR><cmd>args<CR>')
-vim.keymap.set('n', '<Leader>an', '<cmd>next<CR><cmd>args<CR>')
-vim.keymap.set('n', '<Leader>ap', '<cmd>prev<CR><cmd>args<CR>')
-vim.keymap.set('n', '<Leader>aa',
+vim.keymap.set('n', '<leader>al', '<cmd>args<CR>', { desc = "list args" })
+vim.keymap.set('n', '<leader>ae', '<cmd>last<CR><cmd>args<CR>', { desc = "goto last arg file" })
+vim.keymap.set('n', '<leader>ac', '<cmd>argdelete *<CR><cmd>echo "Cleared args"<CR>', { desc = "clear args" })
+vim.keymap.set('n', '<leader>ad', '<cmd>argdelete %<CR><cmd>args<CR>', { desc = "remove buffer from args" })
+vim.keymap.set('n', '<leader>an', '<cmd>next<CR><cmd>args<CR>', { desc = "goto next arg file" })
+vim.keymap.set('n', '<leader>ap', '<cmd>prev<CR><cmd>args<CR>', { desc = "goto prev arg file" })
+vim.keymap.set('n', '<leader>aa',
     function()
         local cur_file = vim.fn.expand('%')
 
@@ -106,8 +120,8 @@ vim.keymap.set('n', '<Leader>aa',
         vim.cmd("+"..tostring(vim.v.count).."argadd %")
         vim.cmd('args')
     end
-)
-vim.keymap.set('n', '<Leader>ag',
+, { desc = "add buffer to args" })
+vim.keymap.set('n', '<leader>ag',
     function()
         local argc = vim.fn.argc()
 
@@ -124,5 +138,5 @@ vim.keymap.set('n', '<Leader>ag',
         end
         vim.cmd('args')
     end
-)
+, { desc = "number + this to goto nth arg" })
 
